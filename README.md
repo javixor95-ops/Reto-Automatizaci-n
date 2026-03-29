@@ -14,18 +14,46 @@ Proyecto de pruebas automáticas con Karate y Maven.
 - `backend-tests/src/test/resources/karate-config.js`: configuración de Karate.
 
 ## Instrucciones para ejecutar
+
+### Backend (Karate + Maven)
 1. Clonar el repo:
    ```bash
    git clone https://github.com/<tu_usuario>/<tu_repositorio>.git
    cd Reto-Automatizacion/backend-tests
    ```
-2. Ejecutar pruebas:
+2. Ejecutar pruebas backend:
    ```bash
    mvn clean test
    ```
 3. Ver resultados de surefire:
    - `backend-tests/target/surefire-reports/UsersTest.txt`
    - `backend-tests/target/surefire-reports/TEST-UsersTest.xml`
+
+### Frontend (Playwright)
+1. Ir al directorio raíz del proyecto:
+   ```bash
+   cd Reto-Automatizacion
+   ```
+2. Instalar dependencias:
+   ```bash
+   npm install
+   npx playwright install
+   ```
+3. Ejecutar pruebas frontend:
+   ```bash
+   npx playwright test
+   ```
+4. Ejecutar un test específico (opcional):
+   ```bash
+   npx playwright test tests/example.spec.js
+   ```
+
+### Ejecución completa
+- Backend + frontend:
+  ```bash
+  cd Reto-Automatizacion/backend-tests && mvn clean test
+  cd .. && npx playwright test
+  ```
 
 ## Ajustes aplicados
 - `karate-config.js` con timeout y baseUrl.
