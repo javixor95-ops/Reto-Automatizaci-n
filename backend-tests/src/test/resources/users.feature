@@ -8,6 +8,7 @@ Scenario: Obtener usuarios
   When method GET
   Then status 200
   And assert response.length > 0
+  * print response
 
 Scenario: Crear usuario
   Given url 'https://jsonplaceholder.typicode.com/users'
@@ -15,6 +16,7 @@ Scenario: Crear usuario
   When method POST
   Then status 201
   And match response.name == 'Javier Requejo'
+  * print response
 
 Scenario: Actualizar usuario
   Given url 'https://jsonplaceholder.typicode.com/users/2'
@@ -22,8 +24,10 @@ Scenario: Actualizar usuario
   When method PUT
   Then status 200
   And match response.name == 'Javier Requejo Nuevo QE de Encora'
+  * print response
 
 Scenario: Eliminar usuario
   Given url 'https://jsonplaceholder.typicode.com/users/2'
   When method DELETE
   Then status 200
+  * print 'Usuario eliminado exitosamente'
